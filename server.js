@@ -30,19 +30,8 @@ for (let name in config.documents) {
   else console.log(`Failed to load static document ${name}`);
 }
 
-// Pick up a key generator
-let pwOptions = config.keyGenerator || {};
-pwOptions.type = pwOptions.type || 'random';
-let gen = require('./lib/key_generators/' + pwOptions.type);
-let keyGenerator = new gen(pwOptions);
-
 // Configure the document handler
-let documentHandler = new DocumentHandler({
-  store: preferredStore,
-  maxLength: config.maxLength,
-  keyLength: config.keyLength,
-  keyGenerator: keyGenerator
-});
+let documentHandler = new DocumentHandler({ store: preferredStore, maxLength: config.maxLength });
 
 let app = connect();
 
