@@ -1,6 +1,7 @@
-npm-debug.log
-node_modules
-*.swp
-*.swo
-data
-*.DS_Store
+# Directories
+node_modules/
+data/
+
+# Files
+yarn.lock
+package-lock.json
