@@ -1,13 +1,5 @@
 {
     "port": 7777,
-    "maxLength": 400000,
-    "staticMaxAge": 86400,
-    "keyGenerator": {
-        "type": "random"
-    },
-    "storage": {
-        "type": "file"
-    },
     "documents": {
         "about": "./about.md"
     }

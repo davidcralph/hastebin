@@ -1,5 +1,5 @@
 body {
-	background: #002B36;
+	background: #2C2F33;
 	padding: 20px 50px;
 	margin: 0px;
 }
@@ -59,31 +59,14 @@ textarea {
 	z-index: +1000; /* watch out */
 }
 
-#box1 {
-	padding: 5px;
-	text-align: center;
-	background: #00222b;
-}
-
 #box2 {
-	background: #08323c;
+	background: #23272A;
 	font-size: 0px;
 	padding: 0px 5px;
 }
 
-#box1 a.logo, #box1 a.logo:visited {
-	display: inline-block;
-	background: url(logo.png);
-	width: 126px;
-	height: 42px;
-}
-
-#box1 a.logo:hover {
-	background-position: 0 bottom;
-}
-
 #box2 .function {
-	background: url(function-icons.png);
+	background: url('../img/function-icons.png');
 	width: 32px;
 	height: 37px;
 	display: inline-block;
@@ -103,7 +86,7 @@ textarea {
 	display: block;
 	height: 5px;
 	width: 10px;
-	background: url(hover-dropdown-tip.png);
+	background: url('../img/hover-dropdown-tip.png');
 	bottom: 0px;
 	position: absolute;
 	margin: auto;
@@ -112,7 +95,7 @@ textarea {
 }
 
 #box3, #messages li {
-	background: #173e48;
+	background: #7289DA;
 	font-family: Helvetica, sans-serif;
 	font-size: 12px;
 	line-height: 14px;
