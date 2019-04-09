@@ -1,7 +1,6 @@
 {
   "name": "haste",
   "version": "0.1.0",
-  "description": "Private Pastebin Server",
   "author": {
     "name": "John Crepezzi",
     "email": "john.crepezzi@gmail.com",

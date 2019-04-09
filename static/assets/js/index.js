@@ -10,11 +10,11 @@ const handlePop = (evt) => {
 // http://code.google.com/p/chromium/issues/detail?id=63040
 setTimeout(() => {
     window.onpopstate = (evt) => {
-        try { handlePop(evt); } catch(err) { /* not loaded yet */ }
+        try { handlePop(evt); } catch(e) { /* not loaded yet */ }
     };
 }, 1000);
 // Construct app and load initial path
 $(() => {
-    app = new haste('hastebin', { twitter: true });
+    app = new haste('Derpy Haste', { twitter: true });
     handlePop({ target: window });
 });
