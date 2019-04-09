@@ -31,6 +31,9 @@ textarea {
 	font-size: 13px;
 	font-family: monospace;
 	text-align: right;
+	user-select: none;
+  -moz-user-select: none;
+	-webkit-user-select: none;
 }
 
 /* code box when locked */
@@ -151,4 +154,3 @@ textarea {
 #messages li.error {
 	background:rgba(102,8,0,0.8);
 }
-
