@@ -7,8 +7,8 @@ const DocumentHandler = require('./lib/document_handler.js');
 
 // Load the configuration and set some defaults
 const config = require('./config.json');
-config.port = process.env.PORT || config.port || 7777;
-config.host = process.env.HOST || config.host || 'localhost';
+config.port = config.port || 7777;
+config.host = config.host || 'localhost';
 
 // build the store from the config on-demand - so that we don't load it
 // for statics
@@ -29,41 +29,26 @@ let documentHandler = new DocumentHandler({ store: preferredStore });
 // first look at API calls
 app.use(route((router) => {
   // get raw documents - support getting with extension
-  router.get('/raw/:id', (request, response) => {
-    let key = request.params.id.split('.')[0];
-    return documentHandler.handleRawGet(key, response, !!config.documents[key]);
-  });
+  router.get('/raw/:id', (req, res) => documentHandler.handleRawGet(req.params.id.split('.')[0], res, !!config.documents[req.params.id.split('.')[0]]));
   // add documents
-  router.post('/documents', (request, response) => {
-    return documentHandler.handlePost(request, response);
-  });
+  router.post('/documents', (req, res) => documentHandler.handlePost(req, res));
   // get documents
-  router.get('/documents/:id', (request, response) => {
-    let key = request.params.id.split('.')[0];
-    return documentHandler.handleGet(key, response, !!config.documents[key]);
-  });
+  router.get('/documents/:id', (req, res) => documentHandler.handleGet(req.params.id.split('.')[0], res, !!config.documents[req.params.id.split('.')[0]]));
 }));
 
 // Otherwise, try to match static files
-app.use(connect_st({
-  path: __dirname + '/static',
-  passthrough: true,
-  index: false
-}));
+app.use(connect_st({ path: __dirname + '/static', passthrough: true, index: false }));
 
 // Then we can loop back - and everything else should be a token,
 // so route it back to /
 app.use(route((router) => {
-  router.get('/:id', (request, response, next) => {
-    request.sturl = '/';
+  router.get('/:id', (req, res, next) => {
+    req.sturl = '/';
     next();
   });
 }));
 
 // And match index
-app.use(connect_st({
-  path: __dirname + '/static',
-  index: 'index.html'
-}));
+app.use(connect_st({ path: __dirname + '/static', index: 'index.html' }));
 
 app.listen(config.port, console.log(`Listening on ${config.host}:${config.port}`));
