@@ -1,5 +1,6 @@
 {
     "port": 7777,
+    "host": "localhost",
     "documents": {
         "about": "./about.md"
     }

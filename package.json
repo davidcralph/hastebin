@@ -1,5 +1,9 @@
 {
   "name": "haste",
+  "license": "MIT",
+  "repository": {
+    "url": "github:ohlookitsderpy/derpyhaste"
+  },
   "version": "0.1.0",
   "author": {
     "name": "John Crepezzi",
@@ -8,8 +12,7 @@
   },
   "dependencies": {
     "busboy": "0.3.1",
-    "connect": "3.7.0",
-    "connect-route": "0.1.5",
+    "express": "4.17.1",
     "st": "2.0.0"
   }
 }
